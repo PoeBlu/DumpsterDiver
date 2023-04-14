@@ -27,7 +27,7 @@ def shannon_entropy(data):
         return entropy
 
     except Exception as e:
-        print("Error: " + str(e))
+        print(f"Error: {str(e)}")
 
 
 if __name__ == '__main__':
@@ -37,5 +37,6 @@ if __name__ == '__main__':
         print("Usage: entropy.py STRING")
         sys.exit()
 
-    print("The entropy of a character in a string '" + sys.argv[1] + 
-          "' is " + str(shannon_entropy(sys.argv[1])) + " bits")
+    print(
+        f"The entropy of a character in a string '{sys.argv[1]}' is {str(shannon_entropy(sys.argv[1]))} bits"
+    )

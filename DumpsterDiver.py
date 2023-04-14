@@ -56,7 +56,7 @@ if __name__ == '__main__':
              + "analyzed using rules specified in 'rules.yaml' file.")
     basic.add_argument('-s', '--secret', action='store_true', 
         help="when this flag is set, then all files will be additionally "
-             + "analyzed in search of hardcoded passwords.")    
+             + "analyzed in search of hardcoded passwords.")
     basic.add_argument('-l', '--level', type=int, choices=range(4), 
         metavar='[0,3]',help="R|0 - searches for short (20-40 bytes long) keys, \n"
                              "    e.g. AWS Access Key ID. \n"
@@ -112,10 +112,9 @@ if __name__ == '__main__':
 
             if os.path.isdir(arguments.local_path) or os.path.isfile(arguments.local_path):
                 core.PATH = os.path.abspath(arguments.local_path)
-                
+
             else:
-                print("The specified path '" + arguments.local_path 
-                      + "' doesn't exist.")
+                print(f"The specified path '{arguments.local_path}' doesn't exist.")
                 sys.exit()
 
         if arguments.level == 0:
@@ -141,7 +140,7 @@ if __name__ == '__main__':
         if arguments.bad_expressions: core.BAD_EXPRESSIONS = arguments.bad_expressions
 
         core.start_the_hunt()
-            
+
     except IOError as msg:
         parser.error(str(msg))
 
